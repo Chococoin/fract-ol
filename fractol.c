@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/01 20:58:42 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/01 21:52:27 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	if (!f.mlx)
 		return (1);
 	f.win = mlx_new_window(f.mlx, f.width, f.height, "fract-ol");
+	f.img = mlx_new_image(f.mlx, f.width, f.height);
+	f.img_data = mlx_get_data_addr(f.img, &f.bpp, &f.size_line, &f.endian);
 	if (!f.win)
 		return (1);
 

@@ -9,12 +9,15 @@ typedef struct s_fractal
 {
 	void		*mlx;
 	void		*win;
+	void		*img;
+	char		*img_data;
+	int			bpp;
+	int			size_line;
+	int			endian;
 	int			width;
 	int			height;
-	int			fractal_type;
-	int			palette;
-	int			color_shift;
 	int			max_iter;
+	int			fractal_type;
 	long double	zoom;
 	long double	offset_x;
 	long double	offset_y;
@@ -33,5 +36,7 @@ int		handle_mouse(int button, int x, int y, t_fractal *f);
 void	draw_mandelbrot(t_fractal *f);
 void	draw_julia(t_fractal *f);
 void	draw_burning_ship(t_fractal *f);
+void	put_pixel(t_fractal *f, int x, int y, int color);
+void	reset_image(t_fractal *f);
 
 #endif
