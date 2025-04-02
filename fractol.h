@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/02 08:13:16 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/02 10:19:07 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <stdlib.h>
 # include "mlx.h"
 # include "keys.h"
-
+	
 typedef struct s_fractal
 {
+	int			mouse_zoom_cooldown;
 	void		*mlx;
 	void		*win;
 	void		*img;
