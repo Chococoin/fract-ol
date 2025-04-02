@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/02 08:58:40 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/02 09:40:15 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,10 @@ int	handle_key(int keycode, t_fractal *f)
 	else if (keycode == XK_z || keycode == XK_Z)
 		f->zoom *= 0.9;
 	else if (keycode == XK_f || keycode == XK_F)
+	{
 		f->freeze_iter = !f->freeze_iter;
+		write(1, "F pressed\n", 10);
+	}
 	if (!f->freeze_iter)
 	{
 		if (f->zoom <= 1.0)
