@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:03:44 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/02 08:28:08 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/02 09:59:40 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #  include <X11/X.h>
 #  include <X11/keysym.h>
 #  define MLX_HOOK_KEYPRESS(win, handler, data) \
-	mlx_hook(win, KeyPress, KeyPressMask, handler, data)
+	mlx_hook(win, KeyRelease, KeyReleaseMask, handler, data)
 #  define MLX_HOOK_CLOSE(win, handler, data) \
 	mlx_hook(win, DestroyNotify, StructureNotifyMask, handler, data)
 # else
