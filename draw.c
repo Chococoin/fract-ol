@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/01 22:37:18 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/02 07:10:05 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	draw_fractal(t_fractal *f, int (*fractal_func)(long double, long dou
 	}
 	mlx_clear_window(f->mlx, f->win);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	put_iteration_info(f);
 }
 
 static int	julia_wrapper(long double zr, long double zi)

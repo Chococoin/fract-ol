@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
+/*   Updated: 2025/04/02 08:13:16 by glugo-mu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
 # include <unistd.h>
 # include <math.h>
-#include <stdlib.h>
+# include <stdlib.h>
 # include "mlx.h"
+# include "keys.h"
 
 typedef struct s_fractal
 {
@@ -41,5 +54,9 @@ void	draw_julia(t_fractal *f);
 void	draw_burning_ship(t_fractal *f);
 void	put_pixel(t_fractal *f, int x, int y, int color);
 void	reset_image(t_fractal *f);
+void	put_iteration_info(t_fractal *f);
+void	ft_itoa_to_buf(int n, char *buf);
+int		handle_key(int keycode, t_fractal *f);
+int		exit_hook(t_fractal *f);
 
 #endif

@@ -1,20 +1,26 @@
-# Detecta el sistema operativo
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
+#    Updated: 2025/04/02 08:52:28 by glugo-mu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 UNAME := $(shell uname)
 
-# Nombre del ejecutable
 NAME = fractol
 
-# Archivos fuente
 SRCS = fractol.c utils.c colours.c draw.c fractals.c hooks.c
 
-# Archivos objeto
 OBJS = $(SRCS:.c=.o)
 
-# Compilador y flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# Configuración específica para macOS o Linux
 ifeq ($(UNAME), Darwin)
 	MLX_DIR = ./mlx
 	MLX_FLAGS = -I$(MLX_DIR) -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -Wl,-rpath,$(MLX_DIR)
@@ -23,7 +29,6 @@ else
 	MLX_FLAGS = -I$(MLX_DIR) -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 endif
 
-# Regla por defecto
 all: $(NAME)
 
 $(NAME): $(OBJS)

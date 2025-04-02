@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/01 23:28:25 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/02 08:56:31 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(int argc, char **argv)
 	}
 	mlx_key_hook(f.win, handle_key, &f);
 	mlx_mouse_hook(f.win, handle_mouse, &f);
+	MLX_HOOK_KEYPRESS(f.win, handle_key, &f);
+	MLX_HOOK_CLOSE(f.win, exit_hook, &f);
 	mlx_loop(f.mlx);
 	return (0);
 }
