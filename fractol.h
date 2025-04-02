@@ -3,6 +3,7 @@
 
 # include <unistd.h>
 # include <math.h>
+#include <stdlib.h>
 # include "mlx.h"
 
 typedef struct s_fractal
@@ -18,6 +19,7 @@ typedef struct s_fractal
 	int			height;
 	int			max_iter;
 	int			fractal_type;
+	int			freeze_iter;
 	long double	zoom;
 	long double	offset_x;
 	long double	offset_y;
@@ -33,6 +35,7 @@ int		mandelbrot(long double cr, long double ci);
 int		julia(long double zr, long double zi, long double cr, long double ci);
 int		burning_ship(long double cr, long double ci);
 int		handle_mouse(int button, int x, int y, t_fractal *f);
+int		handle_key(int keycode, t_fractal *f);
 void	draw_mandelbrot(t_fractal *f);
 void	draw_julia(t_fractal *f);
 void	draw_burning_ship(t_fractal *f);
