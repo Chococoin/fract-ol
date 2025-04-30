@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/30 13:58:02 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:44:20 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	init_fractal(t_fractal *f)
 {
-	f->width = 1200;
-	f->height = 800;
+	f->w = 1200;
+	f->h = 800;
 	f->max_iter = 35;
 	f->zoom = 0.9;
 	f->offset_x = 0.0;
@@ -24,8 +24,8 @@ static int	init_fractal(t_fractal *f)
 	f->mlx = mlx_init();
 	if (!f->mlx)
 		return (0);
-	f->win = mlx_new_window(f->mlx, f->width, f->height, "fract-ol");
-	f->img = mlx_new_image(f->mlx, f->width, f->height);
+	f->win = mlx_new_window(f->mlx, f->w, f->h, "fract-ol");
+	f->img = mlx_new_image(f->mlx, f->w, f->h);
 	f->img_data = mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
 	if (!f->win)
 		return (0);

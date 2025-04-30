@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:02:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/30 14:10:54 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:42:44 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reset_image(t_fractal *f)
 {
 	if (f->img)
 		mlx_destroy_image(f->mlx, f->img);
-	f->img = mlx_new_image(f->mlx, f->width, f->height);
+	f->img = mlx_new_image(f->mlx, f->w, f->h);
 	f->img_data = mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
 }
 

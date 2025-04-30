@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/02 10:19:07 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:39:50 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_fractal
 	int			bpp;
 	int			size_line;
 	int			endian;
-	int			width;
-	int			height;
+	int			w; // width
+	int			h; // height
 	int			max_iter;
 	int			fractal_type;
 	int			freeze_iter;
@@ -59,5 +59,8 @@ void	put_iteration_info(t_fractal *f);
 void	ft_itoa_to_buf(int n, char *buf);
 int		handle_key(int keycode, t_fractal *f);
 int		exit_hook(t_fractal *f);
+void	handle_key_reset(int keycode, t_fractal *f);
+void	handle_key_zoom(int keycode, t_fractal *f);
+void	handle_key_movement(int keycode, t_fractal *f);
 
 #endif

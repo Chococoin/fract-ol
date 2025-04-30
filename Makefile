@@ -6,7 +6,7 @@
 #    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
-#    Updated: 2025/04/02 08:52:28 by glugo-mu         ###   ########.fr        #
+#    Updated: 2025/04/30 14:23:48 by glugo-mu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ UNAME := $(shell uname)
 
 NAME = fractol
 
-SRCS = fractol.c utils.c colours.c draw.c fractals.c hooks.c
+SRCS = fractol.c utils.c utils2.c colours.c draw.c fractals.c hooks.c hooks_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
