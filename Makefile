@@ -6,7 +6,7 @@
 #    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
-#    Updated: 2025/04/30 14:23:48 by glugo-mu         ###   ########.fr        #
+#    Updated: 2025/05/08 11:31:59 by glugo-mu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,10 @@ UNAME := $(shell uname)
 
 NAME = fractol
 
-SRCS = fractol.c utils.c utils2.c colours.c draw.c fractals.c hooks.c hooks_utils.c
+BONUS_NAME = fractol_bonus
 
+SRCS = fractol.c utils.c utils_2.c colours.c draw.c fractals.c hooks.c hooks_utils.c
+BONUS_SRCS = bonus/burning.c src/draw.c src/utils.c src/utils_2.c
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
@@ -37,11 +39,15 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
 
+bonus: $(BONUS_NAME)
+	$(BONUS_NAME): $(BONUS_OBJS)
+		$(CC) $(CFLAGS) $(BONUS_OBJS) $(MLX_FLAGS) -o $(BONUS_NAME)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_OBJS)
 
 re: fclean all
 
