@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:49:16 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:49:46 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,9 @@ void	draw_mandelbrot(t_fractal *f)
 void	draw_julia(t_fractal *f)
 {
 	draw_f(f, julia_wrapper);
+}
+
+void	draw_burning_ship(t_fractal *f)
+{
+	draw_f(f, burning_ship);
 }

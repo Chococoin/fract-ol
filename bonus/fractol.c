@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   fractol.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:48:33 by glugo-mu         ###   ########.fr       */
+/*   Created: 2025/05/08 13:07:51 by glugo-mu          #+#    #+#             */
+/*   Updated: 2025/05/08 13:07:54 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ static int	select_fractal(t_fractal *f, char *arg)
 		f->fractal_type = 2;
 		draw_julia(f);
 	}
+	else if (ft_strcmp(arg, "burning") == 0)
+	{
+		f->fractal_type = 3;
+		draw_burning_ship(f);
+	}
 	else
 	{
 		putendl("Fractal not supported.");
@@ -64,7 +69,7 @@ int	main(int argc, char **argv)
 {
 	t_fractal	f;
 
-	if (!validate_args(argc, argv))
+	if (!validate_args_bonus(argc, argv))
 		return (1);
 	if (!init_fractal(&f))
 		return (1);

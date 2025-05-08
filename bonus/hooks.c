@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:42:20 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:41:10 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	redraw_fractal(t_fractal *f)
 		draw_mandelbrot(f);
 	else if (f->fractal_type == 2)
 		draw_julia(f);
+	else if (f->fractal_type == 3)
+		draw_burning_ship(f);
 }
 
 int	handle_mouse(int button, int x, int y, t_fractal *f)

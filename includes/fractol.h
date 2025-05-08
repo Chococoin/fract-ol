@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/30 14:39:50 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:05:18 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	putstr(char *s);
 void	putendl(char *s);
 int		validate_args(int argc, char **argv);
 int		get_color(int iteration, int max_iter);
+int		validate_args_bonus(int argc, char **argv);
 int		get_color_rainbow(int iteration, int max_iter);
 int		mandelbrot(long double cr, long double ci);
 int		julia(long double zr, long double zi, long double cr, long double ci);

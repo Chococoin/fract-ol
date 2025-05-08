@@ -6,7 +6,7 @@
 #    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
-#    Updated: 2025/05/08 11:31:59 by glugo-mu         ###   ########.fr        #
+#    Updated: 2025/05/08 14:20:22 by glugo-mu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,14 @@ NAME = fractol
 
 BONUS_NAME = fractol_bonus
 
-SRCS = fractol.c utils.c utils_2.c colours.c draw.c fractals.c hooks.c hooks_utils.c
-BONUS_SRCS = bonus/burning.c src/draw.c src/utils.c src/utils_2.c
+SRCS =	src/fractol.c src/utils.c src/utils_2.c src/colours.c src/draw.c src/fractals.c \
+		src/hooks.c src/hooks_utils.c 
+BONUS_SRCS =	bonus/burning.c bonus/hooks.c bonus/fractol.c bonus/draw.c bonus/utils.c \
+				src/utils_2.c src/colours.c src/fractals.c src/hooks_utils.c
 OBJS = $(SRCS:.c=.o)
-
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 ifeq ($(UNAME), Darwin)
 	MLX_DIR = ./mlx
@@ -36,12 +38,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
 
+bonus: $(BONUS_NAME)
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(MLX_FLAGS) -o $(BONUS_NAME)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
-
-bonus: $(BONUS_NAME)
-	$(BONUS_NAME): $(BONUS_OBJS)
-		$(CC) $(CFLAGS) $(BONUS_OBJS) $(MLX_FLAGS) -o $(BONUS_NAME)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -51,4 +53,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
