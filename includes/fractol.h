@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:05:18 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 12:07:37 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_fractal
 	long double	zoom;
 	long double	offset_x;
 	long double	offset_y;
+	double	cr;
+    double	ci;
 }	t_fractal;
 
 int		ft_strcmp(char *s1, char *s2);
@@ -63,5 +65,6 @@ int		exit_hook(t_fractal *f);
 void	handle_key_reset(int keycode, t_fractal *f);
 void	handle_key_zoom(int keycode, t_fractal *f);
 void	handle_key_movement(int keycode, t_fractal *f);
+double	ft_atof(const char *str);
 
 #endif

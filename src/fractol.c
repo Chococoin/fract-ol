@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:48:33 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 12:53:50 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,26 @@ static int	init_fractal(t_fractal *f)
 	return (1);
 }
 
-static int	select_fractal(t_fractal *f, char *arg)
+static int	select_fractal(t_fractal *f, int argc, char **argv)
 {
-	if (ft_strcmp(arg, "mandelbrot") == 0)
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
 	{
 		f->fractal_type = 1;
 		draw_mandelbrot(f);
 	}
-	else if (ft_strcmp(arg, "julia") == 0)
+	else if (ft_strcmp(argv[1], "julia") == 0)
 	{
 		f->fractal_type = 2;
+		if (argc >= 4)
+		{
+			f->cr = ft_atof(argv[2]);
+			f->ci = ft_atof(argv[3]);
+		}
+		else
+		{
+			f->cr = -0.7;
+			f->ci = 0.27015;
+		}
 		draw_julia(f);
 	}
 	else
@@ -68,7 +78,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!init_fractal(&f))
 		return (1);
-	if (!select_fractal(&f, argv[1]))
+	if (!select_fractal(&f, argc, argv))
 		return (1);
 	setup_hooks(&f);
 	mlx_loop(f.mlx);
