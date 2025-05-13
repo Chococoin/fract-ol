@@ -6,13 +6,13 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:49:31 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:08:14 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	draw_f(t_fractal *f, int (*fractal_func)(long double, long double))
+static void	draw_f(t_frac *f, int (*fractal_func)(long double, long double))
 {
 	int				x;
 	int				y;
@@ -40,7 +40,7 @@ static void	draw_f(t_fractal *f, int (*fractal_func)(long double, long double))
 	put_iteration_info(f);
 }
 
-void	draw_burning_ship(t_fractal *f)
+void	draw_burning_ship(t_frac *f)
 {
 	draw_f(f, burning_ship);
 }

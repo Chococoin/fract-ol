@@ -6,13 +6,13 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:07:51 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 13:36:02 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:12:41 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	init_fractal(t_fractal *f)
+static int	init_fractal(t_frac *f)
 {
 	f->w = 1200;
 	f->h = 800;
@@ -32,7 +32,7 @@ static int	init_fractal(t_fractal *f)
 	return (1);
 }
 
-static int	select_fractal(t_fractal *f, int argc, char **argv)
+static int	select_fractal(t_frac *f, int argc, char **argv)
 {
 	if (ft_strcmp(argv[1], "mandelbrot") == 0)
 		return (setup_mandelbrot(f));
@@ -47,7 +47,7 @@ static int	select_fractal(t_fractal *f, int argc, char **argv)
 	}
 }
 
-static void	setup_hooks(t_fractal *f)
+static void	setup_hooks(t_frac *f)
 {
 	mlx_key_hook(f->win, handle_key, f);
 	mlx_mouse_hook(f->win, handle_mouse, f);
@@ -57,7 +57,7 @@ static void	setup_hooks(t_fractal *f)
 
 int	main(int argc, char **argv)
 {
-	t_fractal	f;
+	t_frac	f;
 
 	if (!validate_args_bonus(argc, argv))
 		return (1);

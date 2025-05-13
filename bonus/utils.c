@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:56:07 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 13:34:36 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:08:43 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	validate_args_bonus(int argc, char **argv)
 	return (1);
 }
 
-void	put_pixel(t_fractal *f, int x, int y, int color)
+void	put_pixel(t_frac *f, int x, int y, int color)
 {
 	char	*dst;
 

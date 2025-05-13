@@ -6,13 +6,13 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:41:10 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:13:30 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	update_zoom(t_fractal *f, int x, int y, long double zoom_factor)
+static void	update_zoom(t_frac *f, int x, int y, long double zoom_factor)
 {
 	long double	old_zoom;
 
@@ -24,7 +24,7 @@ static void	update_zoom(t_fractal *f, int x, int y, long double zoom_factor)
 		* (1.0L / old_zoom - 1.0L / f->zoom);
 }
 
-static void	update_iterations(t_fractal *f)
+static void	update_iterations(t_frac *f)
 {
 	if (f->zoom <= 1.0)
 		f->max_iter = 35;
@@ -36,7 +36,7 @@ static void	update_iterations(t_fractal *f)
 	}
 }
 
-static void	redraw_fractal(t_fractal *f)
+static void	redraw_fractal(t_frac *f)
 {
 	if (f->fractal_type == 1)
 		draw_mandelbrot(f);
@@ -46,7 +46,7 @@ static void	redraw_fractal(t_fractal *f)
 		draw_burning_ship(f);
 }
 
-int	handle_mouse(int button, int x, int y, t_fractal *f)
+int	handle_mouse(int button, int x, int y, t_frac *f)
 {
 	long double	zoom_factor;
 
@@ -69,7 +69,7 @@ int	handle_mouse(int button, int x, int y, t_fractal *f)
 	return (0);
 }
 
-int	handle_key(int keycode, t_fractal *f)
+int	handle_key(int keycode, t_frac *f)
 {
 	if (keycode == XK_Escape)
 		exit(0);

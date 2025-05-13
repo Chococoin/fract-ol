@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:02:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/30 14:42:44 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:11:17 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	reset_image(t_fractal *f)
+void	reset_image(t_frac *f)
 {
 	if (f->img)
 		mlx_destroy_image(f->mlx, f->img);
@@ -20,19 +20,19 @@ void	reset_image(t_fractal *f)
 	f->img_data = mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
 }
 
-int	exit_hook(t_fractal *f)
+int	exit_hook(t_frac *f)
 {
 	(void)f;
 	exit(0);
 }
 
-void	setup_hooks(t_fractal *f)
+void	setup_hooks(t_frac *f)
 {
 	MLX_HOOK_KEYPRESS(f->win, handle_key, f);
 	MLX_HOOK_CLOSE(f->win, exit_hook, f);
 }
 
-void	put_iteration_info(t_fractal *f)
+void	put_iteration_info(t_frac *f)
 {
 	char	*str;
 	char	buffer[50];

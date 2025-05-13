@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:28:07 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 13:19:16 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:32:41 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ int	validate_args(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		putendl("Usage: ./fractol mandelbrot | julia [<cr ci>]");
+		putendl("Usage: ./fractol <fractal_name> [args]");
 		return (0);
 	}
-	if (ft_strcmp(argv[1], "julia") == 0 && argc <= 3)
+	if (ft_strcmp(argv[1], "julia") == 0 && argc > 2 && argc < 4)
 	{
-		putendl("usage: ./fractol julia [<cr ci>]");
+		putendl("Usage: ./fractol julia [<c_re> <c_im>]");
 		return (0);
 	}
 	return (1);
 }
 
-void	put_pixel(t_fractal *f, int x, int y, int color)
+void	put_pixel(t_frac *f, int x, int y, int color)
 {
 	char	*dst;
 

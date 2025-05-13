@@ -6,13 +6,13 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:49:16 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:34:00 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	draw_f(t_fractal *f, int (*fractal_func)(long double, long double))
+static void	draw_f(t_frac *f, int (*f_func)(long double, long double, t_frac *))
 {
 	int				x;
 	int				y;
@@ -29,7 +29,7 @@ static void	draw_f(t_fractal *f, int (*fractal_func)(long double, long double))
 		{
 			cr = (x - f->w / 2.0) * 4.0L / f->w / f->zoom + f->offset_x;
 			ci = (y - f->h / 2.0) * 4.0L / f->h / f->zoom + f->offset_y;
-			color = get_color(fractal_func(cr, ci), f->max_iter);
+			color = get_color(f_func(cr, ci, f), f->max_iter);
 			put_pixel(f, x, y, color);
 			x++;
 		}
@@ -40,17 +40,22 @@ static void	draw_f(t_fractal *f, int (*fractal_func)(long double, long double))
 	put_iteration_info(f);
 }
 
-static int	julia_wrapper(long double zr, long double zi)
+static int	julia_wrapper(long double zr, long double zi, t_frac *f)
 {
-	return (julia(zr, zi, -0.7, 0.27015));
+	return (julia(zr, zi, f->cr, f->ci));
 }
 
-void	draw_mandelbrot(t_fractal *f)
+int	mandelbrot_wrapper(long double cr, long double ci, t_frac *f)
 {
-	draw_f(f, mandelbrot);
+	return (mandelbrot(cr, ci, f));
 }
 
-void	draw_julia(t_fractal *f)
+void	draw_julia(t_frac *f)
 {
 	draw_f(f, julia_wrapper);
+}
+
+void	draw_mandelbrot(t_frac *f)
+{
+	draw_f(f, mandelbrot_wrapper);
 }

@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 13:26:55 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:04:56 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_fractal
 	long double	offset_y;
 	double	cr;
     double	ci;
-}	t_fractal;
+}	t_frac;
 
 int		ft_strcmp(char *s1, char *s2);
 void	putstr(char *s);
@@ -47,27 +47,27 @@ void	putendl(char *s);
 int		validate_args(int argc, char **argv);
 int		get_color(int iteration, int max_iter);
 int		validate_args_bonus(int argc, char **argv);
-int		get_color_rainbow(int iteration, int max_iter);
-int		mandelbrot(long double cr, long double ci);
+int		mandelbrot(long double cr, long double ci, t_frac *f);
 int		julia(long double zr, long double zi, long double cr, long double ci);
 int		burning_ship(long double cr, long double ci);
-int		handle_mouse(int button, int x, int y, t_fractal *f);
-int		handle_key(int keycode, t_fractal *f);
-void	draw_mandelbrot(t_fractal *f);
-void	draw_julia(t_fractal *f);
-void	draw_burning_ship(t_fractal *f);
-void	put_pixel(t_fractal *f, int x, int y, int color);
-void	reset_image(t_fractal *f);
-void	put_iteration_info(t_fractal *f);
+int		handle_mouse(int button, int x, int y, t_frac *f);
+int		handle_key(int keycode, t_frac *f);
+void	draw_mandelbrot(t_frac *f);
+void	draw_julia(t_frac *f);
+void	draw_burning_ship(t_frac *f);
+void	put_pixel(t_frac *f, int x, int y, int color);
+void	reset_image(t_frac *f);
+void	put_iteration_info(t_frac *f);
 void	ft_itoa_to_buf(int n, char *buf);
-int		handle_key(int keycode, t_fractal *f);
-int		exit_hook(t_fractal *f);
-void	handle_key_reset(int keycode, t_fractal *f);
-void	handle_key_zoom(int keycode, t_fractal *f);
-void	handle_key_movement(int keycode, t_fractal *f);
+int		handle_key(int keycode, t_frac *f);
+int		exit_hook(t_frac *f);
+void	handle_key_reset(int keycode, t_frac *f);
+void	handle_key_zoom(int keycode, t_frac *f);
+void	handle_key_movement(int keycode, t_frac *f);
 double	ft_atof(const char *str);
-int		setup_mandelbrot(t_fractal *f);
-int		setup_julia(t_fractal *f, int argc, char **argv);
-int		setup_burning_ship(t_fractal *f);
+int		setup_mandelbrot(t_frac *f);
+int		setup_julia(t_frac *f, int argc, char **argv);
+int		mandelbrot_wrapper(long double cr, long double ci, t_frac *f);
+int		setup_burning_ship(t_frac *f);
 
 #endif
