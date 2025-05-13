@@ -6,7 +6,7 @@
 #    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
-#    Updated: 2025/05/13 18:06:15 by glugo-mu         ###   ########.fr        #
+#    Updated: 2025/05/13 18:45:58 by glugo-mu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_OBJS)
+	rm -f $(NAME) $(BONUS_NAME) $(BONUS_OBJS)
 
 re: fclean all
 
