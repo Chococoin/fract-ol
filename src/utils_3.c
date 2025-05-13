@@ -6,39 +6,60 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:06:39 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:07:55 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:50:43 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static const char	*parse_sign(const char *str, int *sign)
+{
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign = -1;
+		str++;
+	}
+	return (str);
+}
+
+static const char	*parse_integer_part(const char *str, double *result)
+{
+	while (*str >= '0' && *str <= '9')
+	{
+		*result = *result * 10.0 + (*str - '0');
+		str++;
+	}
+	return (str);
+}
+
 double	ft_atof(const char *str)
 {
-	return (strtod(str, NULL));
-}
+	double	result;
+	double	fraction;
+	int		sign;
+	double	divisor;
 
-int	setup_mandelbrot(t_frac *f)
-{
-	f->fractal_type = 1;
-	draw_mandelbrot(f);
-	return (1);
-}
-
-int	setup_julia(t_frac *f, int argc, char **argv)
-{
-	f->fractal_type = 2;
-	if (argc >= 4)
+	result = 0.0;
+	fraction = 0.0;
+	divisor = 10.0;
+	sign = 1;
+	while (*str == ' ' || *str == '\t')
+		str++;
+	str = parse_sign(str, &sign);
+	str = parse_integer_part(str, &result);
+	if (*str == '.')
 	{
-		f->cr = ft_atof(argv[2]);
-		f->ci = ft_atof(argv[3]);
+		str++;
+		while (*str >= '0' && *str <= '9')
+		{
+			fraction += (*str - '0') / divisor;
+			divisor *= 10.0;
+			str++;
+		}
 	}
-	else
-	{
-		f->cr = -0.7;
-		f->ci = 0.27015;
-	}
-	draw_julia(f);
-	return (1);
+	result += fraction;
+	return (sign * result);
 }
 
 int	get_color(int iteration, int max_iter)

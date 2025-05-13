@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:04:56 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:13:41 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
+# include <ctype.h>
 # include "mlx.h"
 # include "keys.h"
 	

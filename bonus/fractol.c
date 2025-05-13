@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:07:51 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:12:41 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:46:10 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	init_fractal(t_frac *f)
 {
 	f->w = 1200;
 	f->h = 800;
-	f->max_iter = 35;
+	f->max_iter = 100;
 	f->zoom = 0.9;
 	f->offset_x = 0.0;
 	f->offset_y = 0.0;

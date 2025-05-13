@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:11:34 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:52:28 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	update_iterations(t_frac *f)
 	else
 	{
 		f->max_iter = 35 + (int)(log(f->zoom) / (log(1.1)) * 5);
-		if (f->max_iter > 200)
-			f->max_iter = 200;
+		if (f->max_iter > 500)
+			f->max_iter = 500;
 	}
 }
 

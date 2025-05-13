@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:23:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:04:15 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:51:29 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,28 @@ int	julia(long double zr, long double zi, long double cr, long double ci)
 		i++;
 	}
 	return (i);
+}
+
+int	setup_mandelbrot(t_frac *f)
+{
+	f->fractal_type = 1;
+	draw_mandelbrot(f);
+	return (1);
+}
+
+int	setup_julia(t_frac *f, int argc, char **argv)
+{
+	f->fractal_type = 2;
+	if (argc >= 4)
+	{
+		f->cr = ft_atof(argv[2]);
+		f->ci = ft_atof(argv[3]);
+	}
+	else
+	{
+		f->cr = -0.7;
+		f->ci = 0.27015;
+	}
+	draw_julia(f);
+	return (1);
 }

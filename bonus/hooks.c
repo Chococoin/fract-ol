@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:13:30 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:56:17 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static void	update_zoom(t_frac *f, int x, int y, long double zoom_factor)
 static void	update_iterations(t_frac *f)
 {
 	if (f->zoom <= 1.0)
-		f->max_iter = 35;
+		f->max_iter = 50;
 	else
 	{
-		f->max_iter = 35 + (int)(log(f->zoom) / (log(1.1)) * 5);
-		if (f->max_iter > 200)
-			f->max_iter = 200;
+		f->max_iter = 50 + (int)(log(f->zoom) / (log(1.1)) * 5);
+		if (f->max_iter > 500)
+			f->max_iter = 500;
 	}
 }
 
