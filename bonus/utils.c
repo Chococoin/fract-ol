@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:56:07 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:51:35 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:34:36 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,14 @@ void	putendl(char *s)
 
 int	validate_args_bonus(int argc, char **argv)
 {
-	(void)argv;
-	if (argc != 2)
+	if (argc < 2)
 	{
-		putendl("Use: ./fractol mandelbrot | julia | burning");
+		putendl("Usage: ./fractol <fractal_name> [args]");
+		return (0);
+	}
+	if (ft_strcmp(argv[1], "julia") == 0 && argc > 2 && argc < 4)
+	{
+		putendl("Usage: ./fractol julia [<c_re> <c_im>]");
 		return (0);
 	}
 	return (1);

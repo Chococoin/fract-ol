@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:28:07 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:54:20 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:19:16 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	validate_args(int argc, char **argv)
 		putendl("Usage: ./fractol mandelbrot | julia [<cr ci>]");
 		return (0);
 	}
-	if (ft_strcmp(argv[1], "julia") == 0 && argc < 4)
+	if (ft_strcmp(argv[1], "julia") == 0 && argc <= 3)
 	{
 		putendl("usage: ./fractol julia [<cr ci>]");
 		return (0);

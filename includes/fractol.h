@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:07:37 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:26:55 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,8 @@ void	handle_key_reset(int keycode, t_fractal *f);
 void	handle_key_zoom(int keycode, t_fractal *f);
 void	handle_key_movement(int keycode, t_fractal *f);
 double	ft_atof(const char *str);
+int		setup_mandelbrot(t_fractal *f);
+int		setup_julia(t_fractal *f, int argc, char **argv);
+int		setup_burning_ship(t_fractal *f);
 
 #endif

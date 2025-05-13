@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:07:51 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:54:59 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:36:02 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,19 @@ static int	init_fractal(t_fractal *f)
 	return (1);
 }
 
-static int	select_fractal(t_fractal *f, char *arg)
+static int	select_fractal(t_fractal *f, int argc, char **argv)
 {
-	if (ft_strcmp(arg, "mandelbrot") == 0)
-	{
-		f->fractal_type = 1;
-		draw_mandelbrot(f);
-	}
-	else if (ft_strcmp(arg, "julia") == 0)
-	{
-		f->fractal_type = 2;
-		draw_julia(f);
-	}
-	else if (ft_strcmp(arg, "burning") == 0)
-	{
-		f->fractal_type = 3;
-		draw_burning_ship(f);
-	}
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
+		return (setup_mandelbrot(f));
+	else if (ft_strcmp(argv[1], "julia") == 0)
+		return (setup_julia(f, argc, argv));
+	else if (ft_strcmp(argv[1], "burning") == 0)
+		return (setup_burning_ship(f));
 	else
 	{
 		putendl("Fractal not supported.");
 		return (0);
 	}
-	return (1);
 }
 
 static void	setup_hooks(t_fractal *f)
@@ -73,7 +63,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!init_fractal(&f))
 		return (1);
-	if (!select_fractal(&f, argv[1]))
+	if (!select_fractal(&f, argc, argv))
 		return (1);
 	setup_hooks(&f);
 	mlx_loop(f.mlx);

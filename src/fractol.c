@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:53:50 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:11:05 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,14 @@ static int	init_fractal(t_fractal *f)
 static int	select_fractal(t_fractal *f, int argc, char **argv)
 {
 	if (ft_strcmp(argv[1], "mandelbrot") == 0)
-	{
-		f->fractal_type = 1;
-		draw_mandelbrot(f);
-	}
+		return (setup_mandelbrot(f));
 	else if (ft_strcmp(argv[1], "julia") == 0)
-	{
-		f->fractal_type = 2;
-		if (argc >= 4)
-		{
-			f->cr = ft_atof(argv[2]);
-			f->ci = ft_atof(argv[3]);
-		}
-		else
-		{
-			f->cr = -0.7;
-			f->ci = 0.27015;
-		}
-		draw_julia(f);
-	}
+		return (setup_julia(f, argc, argv));
 	else
 	{
 		putendl("Fractal not supported.");
 		return (0);
 	}
-	return (1);
 }
 
 static void	setup_hooks(t_fractal *f)
