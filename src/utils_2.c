@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:02:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:11:17 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 16:18:29 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	exit_hook(t_frac *f)
 
 void	setup_hooks(t_frac *f)
 {
-	MLX_HOOK_KEYPRESS(f->win, handle_key, f);
-	MLX_HOOK_CLOSE(f->win, exit_hook, f);
+	mlx_hook_keypress(f->win, handle_key, f);
+	mlx_hook_close(f->win, exit_hook, f);
 }
 
 void	put_iteration_info(t_frac *f)
