@@ -6,13 +6,13 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:08:14 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:45:37 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	draw_f(t_frac *f, int (*fractal_func)(long double, long double))
+static void	draw_f(t_frac *f, int (*f_func)(long double, long double, t_frac *))
 {
 	int				x;
 	int				y;
@@ -29,7 +29,7 @@ static void	draw_f(t_frac *f, int (*fractal_func)(long double, long double))
 		{
 			cr = (x - f->w / 2.0) * 4.0L / f->w / f->zoom + f->offset_x;
 			ci = (y - f->h / 2.0) * 4.0L / f->h / f->zoom + f->offset_y;
-			color = get_color(fractal_func(cr, ci), f->max_iter);
+			color = get_color(f_func(cr, ci, f), f->max_iter);
 			put_pixel(f, x, y, color);
 			x++;
 		}

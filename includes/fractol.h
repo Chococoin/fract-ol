@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 13:32:53 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:36:26 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int		validate_args(int argc, char **argv);
 int		get_color(int iteration, int max_iter);
 int		validate_args_bonus(int argc, char **argv);
 int		mandelbrot(long double cr, long double ci, t_frac *f);
-int		julia(long double zr, long double zi, long double cr, long double ci);
-int		burning_ship(long double cr, long double ci);
+int		julia(long double zr, long double zi, t_frac *f);
+int		burning_ship(long double cr, long double ci, t_frac *f);
 int		handle_mouse(int button, int x, int y, t_frac *f);
 int		handle_key(int keycode, t_frac *f);
 void	draw_mandelbrot(t_frac *f);
@@ -69,5 +69,6 @@ double	ft_atof(const char *str);
 int		setup_mandelbrot(t_frac *f);
 int		setup_julia(t_frac *f, int argc, char **argv);
 int		mandelbrot_wrapper(long double cr, long double ci, t_frac *f);
+int		setup_burning_ship(t_frac *f);
 
 #endif

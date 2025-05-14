@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:22:19 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 18:34:00 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:24:58 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	draw_f(t_frac *f, int (*f_func)(long double, long double, t_frac *))
 
 static int	julia_wrapper(long double zr, long double zi, t_frac *f)
 {
-	return (julia(zr, zi, f->cr, f->ci));
+	return (julia(zr, zi, f));
 }
 
 int	mandelbrot_wrapper(long double cr, long double ci, t_frac *f)
