@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:03:44 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/04/02 09:59:40 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 16:10:11 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,43 @@
 # ifdef __linux__
 #  include <X11/X.h>
 #  include <X11/keysym.h>
-#  define MLX_HOOK_KEYPRESS(win, handler, data) \
-	mlx_hook(win, KeyRelease, KeyReleaseMask, handler, data)
-#  define MLX_HOOK_CLOSE(win, handler, data) \
-	mlx_hook(win, DestroyNotify, StructureNotifyMask, handler, data)
-# else
-#  define XK_Escape 53
-#  define XK_Left   123
-#  define XK_Right  124
-#  define XK_Down   125
-#  define XK_Up     126
-#  define XK_r      15
-#  define XK_R      15
-#  define XK_a      0
-#  define XK_A      0
-#  define XK_z      6
-#  define XK_Z      6
-#  define XK_f      3
-#  define XK_F      3
-#  define MLX_HOOK_KEYPRESS(win, handler, data) \
-	mlx_key_hook(win, handler, data)
-#  define MLX_HOOK_CLOSE(win, handler, data) \
-	(void)(win); (void)(handler); (void)(data)
-# endif
 
+static inline void	mlx_hook_keypress(void *win, int (*handler)(), void *data)
+{
+	mlx_hook(win, KeyRelease, KeyReleaseMask, handler, data);
+}
+
+static inline void	mlx_hook_close(void *win, int (*handler)(), void *data)
+{
+	mlx_hook(win, DestroyNotify, StructureNotifyMask, handler, data);
+}
+
+# else
+
+enum
+{
+	XK_ESCAPE = 53,
+	XK_LEFT = 123,
+	XK_RIGHT = 124,
+	XK_DOWN = 125,
+	XK_UP = 126,
+	XK_R = 15,
+	XK_A = 0,
+	XK_Z = 6,
+	XK_F = 3
+};
+
+static inline void	mlx_hook_keypress(void *win, int (*handler)(), void *data)
+{
+	mlx_key_hook(win, handler, data);
+}
+
+static inline void	mlx_hook_close(void *win, int (*handler)(), void *data)
+{
+	(void)win;
+	(void)handler;
+	(void)data;
+}
+
+# endif
 #endif

@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 15:36:26 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 16:11:01 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <ctype.h>
 # include "mlx.h"
 # include "keys.h"
-	
+
 typedef struct s_fractal
 {
 	int			mouse_zoom_cooldown;
@@ -38,8 +38,8 @@ typedef struct s_fractal
 	long double	zoom;
 	long double	offset_x;
 	long double	offset_y;
-	double	cr;
-    double	ci;
+	double		cr;
+	double		ci;
 }	t_frac;
 
 int		ft_strcmp(char *s1, char *s2);
