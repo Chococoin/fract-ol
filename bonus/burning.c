@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:05:58 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 14:40:07 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:53:16 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	burning_ship(long double cr, long double ci)
 	i = 0;
 	zr = 0;
 	zi = 0;
-	while ((zr * zr + zi * zi <= 2.0) && i < 100)
+	while ((zr * zr + zi * zi <= 2.0) && i < f->max_iter)
 	{
 		tmp = zr;
 		zr = fabsl(zr * zr - zi * zi + cr);

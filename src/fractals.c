@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:23:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 14:39:58 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:53:01 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	mandelbrot(long double cr, long double ci, t_frac *f)
 	zr = 0;
 	zi = 0;
 	(void)f;
-	while ((zr * zr + zi * zi <= 2.0) && i < 100)
+	while ((zr * zr + zi * zi <= 2.0) && i < f->max_iter)
 	{
 		tmp = zr * zr - zi * zi + cr;
 		zi = 2 * zr * zi + ci;
@@ -39,7 +39,7 @@ int	julia(long double zr, long double zi, long double cr, long double ci)
 	long double		tmp;
 
 	i = 0;
-	while ((zr * zr + zi * zi <= 2.0) && i < 100)
+	while ((zr * zr + zi * zi <= 2.0) && i < f->max_iter)
 	{
 		tmp = zr * zr - zi * zi + cr;
 		zi = 2 * zr * zi + ci;
