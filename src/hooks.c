@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 19:52:28 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:59:34 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static void	update_zoom(t_frac *f, int x, int y, long double zoom_factor)
 static void	update_iterations(t_frac *f)
 {
 	if (f->zoom <= 1.0)
-		f->max_iter = 35;
+		f->max_iter = 75;
 	else
 	{
-		f->max_iter = 35 + (int)(log(f->zoom) / (log(1.1)) * 5);
+		f->max_iter = 75 + (int)(log(f->zoom) / (log(1.1)) * 5);
 		if (f->max_iter > 500)
 			f->max_iter = 500;
 	}
@@ -60,7 +60,7 @@ int	handle_mouse(int button, int x, int y, t_frac *f)
 	else
 		return (0);
 	update_zoom(f, x, y, zoom_factor);
-	f->mouse_zoom_cooldown = 3;
+	f->mouse_zoom_cooldown = 4;
 	if (!f->freeze_iter)
 		update_iterations(f);
 	redraw_fractal(f);

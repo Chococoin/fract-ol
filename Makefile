@@ -6,7 +6,7 @@
 #    By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 08:52:14 by glugo-mu          #+#    #+#              #
-#    Updated: 2025/05/13 18:45:58 by glugo-mu         ###   ########.fr        #
+#    Updated: 2025/05/14 13:31:21 by glugo-mu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ BONUS_NAME = fractol_bonus
 
 SRCS =	src/fractol.c src/utils.c src/utils_2.c  src/utils_3.c \
 		src/draw.c src/fractals.c src/hooks.c src/hooks_utils.c 
+		
 BONUS_SRCS =	bonus/burning.c bonus/hooks.c bonus/fractol.c bonus/draw.c \
-				bonus/utils.c bonus/utils_bonus.c src/utils_2.c src/utils_3.c \
-				src/fractals.c src/hooks_utils.c src/draw.c
+				bonus/utils.c src/utils_2.c src/utils_3.c src/fractals.c \
+				src/hooks_utils.c src/draw.c
+
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:06:39 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/13 20:50:43 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:56:20 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	get_color(int iteration, int max_iter)
 	if (iteration == max_iter)
 		return (0x000000);
 	t = (double)iteration / max_iter;
-	if (max_iter > 100)
+	if (max_iter > 500)
 		curva = 0.5 + ((double)(max_iter - 100) / 400.0);
 	else
 		curva = 0.5;

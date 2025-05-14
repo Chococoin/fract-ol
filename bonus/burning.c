@@ -6,11 +6,18 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:05:58 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:52:08 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:04:17 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static int	setup_burning_ship(t_frac *f)
+{
+	f->fractal_type = 3;
+	draw_burning_ship(f);
+	return (1);
+}
 
 int	burning_ship(long double cr, long double ci)
 {
