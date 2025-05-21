@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 18:24:45 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 14:04:02 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:14:00 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ int	handle_mouse(int button, int x, int y, t_frac *f)
 int	handle_key(int keycode, t_frac *f)
 {
 	if (keycode == XK_Escape)
+	{
+		cleanup(f);
 		exit(0);
+	}
 	handle_key_movement(keycode, f);
 	handle_key_zoom(keycode, f);
 	handle_key_reset(keycode, f);
