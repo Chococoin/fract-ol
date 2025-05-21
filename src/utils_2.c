@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:02:38 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 16:18:29 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:58:03 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	reset_image(t_frac *f)
 
 int	exit_hook(t_frac *f)
 {
-	(void)f;
+	cleanup(f);
 	exit(0);
+	return (0);
 }
 
 void	setup_hooks(t_frac *f)

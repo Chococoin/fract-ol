@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:06:39 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 13:56:20 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:58:20 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,17 @@ int	get_color(int iteration, int max_iter)
 	g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
 	b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 	return ((r << 16) | (g << 8) | b);
+}
+
+void	cleanup(t_frac *f)
+{
+	if (f->img)
+		mlx_destroy_image(f->mlx, f->img);
+	if (f->win)
+		mlx_destroy_window(f->mlx, f->win);
+	if (f->mlx)
+	{
+		mlx_destroy_display(f->mlx);
+		free(f->mlx);
+	}
 }

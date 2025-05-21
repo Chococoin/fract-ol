@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 08:04:04 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 16:11:01 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:52:14 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int		setup_mandelbrot(t_frac *f);
 int		setup_julia(t_frac *f, int argc, char **argv);
 int		mandelbrot_wrapper(long double cr, long double ci, t_frac *f);
 int		setup_burning_ship(t_frac *f);
+void	cleanup(t_frac *f);
 
 #endif

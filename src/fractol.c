@@ -6,7 +6,7 @@
 /*   By: glugo-mu <glugo-mu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:55:49 by glugo-mu          #+#    #+#             */
-/*   Updated: 2025/05/14 16:17:38 by glugo-mu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:01:07 by glugo-mu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int	main(int argc, char **argv)
 		return (1);
 	setup_hooks(&f);
 	mlx_loop(f.mlx);
+	cleanup(&f);
 	return (0);
 }
